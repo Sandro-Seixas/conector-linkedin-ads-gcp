@@ -12,7 +12,7 @@ steps:
       - --trigger-http
       - --service-account=sa-linkedin-ads-ingestion@$PROJECT_ID.iam.gserviceaccount.com
       - --no-allow-unauthenticated
-      - --set-env-vars=GCP_PROJECT=$PROJECT_ID,BQ_DATASET=linkedin_ads_b2b,BQ_TABLE=linkedin_ads_raw
+      - --set-env-vars=GCP_PROJECT=$PROJECT_ID,BQ_DATASET=linkedin_ads_b2b,BQ_TABLE=tb_linkedin_ads_raw
 
 options:
   logging: CLOUD_LOGGING_ONLY
