@@ -1,0 +1,18 @@
+steps:
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    args:
+      - gcloud
+      - functions
+      - deploy
+      - fn-ingestao-linkedin-ads
+      - --region=us-central1
+      - --source=.
+      - --entry-point=ingest_linkedin_ads
+      - --runtime=python310
+      - --trigger-http
+      - --service-account=sa-linkedin-ads-ingestion@$PROJECT_ID.iam.gserviceaccount.com
+      - --no-allow-unauthenticated
+      - --set-env-vars=GCP_PROJECT=$PROJECT_ID,BQ_DATASET=linkedin_ads_b2b,BQ_TABLE=linkedin_ads_raw
+
+options:
+  logging: CLOUD_LOGGING_ONLY
